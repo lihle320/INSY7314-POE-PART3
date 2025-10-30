@@ -1,0 +1,49 @@
+.dashboard-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.dashboard-card h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+  text-align: center;
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.payment-table th, 
+.payment-table td {
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.payment-table th {
+  background: var(--primary);
+  color: var(--text-light);
+}
+
+.status.pending {
+  color: orange;
+}
+
+.status.completed {
+  color: green;
+}
+
+.status.failed {
+  color: red;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
