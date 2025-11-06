@@ -1,0 +1,10 @@
+#119 Implementing Rate Limiting | Authentication & Authorization | A Complete NODE JS Course.  2025. YouTube Video added by procademy. [Online]. Available at: https://youtu.be/Lt8W5VPkDxs?si=MujUW8YzVxbUw3y7 [Accessed 10 October 2025].
+Express JS | Using The Helmet Middleware. 2023. YouTube Video added by WebDevBob. [Online]. Available at: https://youtu.be/cmT7i3Mty9c?si=zA923DJNFERJ32QF [Accessed 10 October 2025].
+How To Create Your Own CSRF Protection Middleware For Node.js. 2025. YouTube Video added by Imran Codes. [Online]. Available at: https://youtu.be/6eob06TZChk?si=rrpfnIW7hQOls331 [Accessed 10 October 2025].
+How to generate and use a SSL certificate in NodeJS. 2020. YouTube Video added by Mafia Codes. [Online]. Available at: https://youtu.be/USrMdBF0zcg?si=0aoHwLNdgyU2Mzar [Accessed 10 October 2025].
+Learn JWT in 10 Minutes with Express, Node, and Cookie Parser. 2025.  YouTube Video added by Web Dev Cody. [Online]. Available at: https://youtu.be/dX_LteE0NFM?si=sH32sVpnb1BZOYEY  [Accessed 10 Oct. 2025].
+Learn Regular Expressions In 20 Minutes. 2019. YouTube Video added by Web Dev Simplified. [Online]. Available at: https://youtu.be/rhzKDrUiJVk?si=hFo_0A1TA-Bor06d [Accessed 10 Oct. 2025].
+MERN Stack Tutorial with Deployment – Beginner's Course. 2025. YouTube Video added by FreeCodeCamp.org. [Online]. Available at: https://youtu.be/O3BUHwfHf84?si=rq2VZZDicK7PtIml [Accessed 10 October 2025].
+Password Storage Tier List: encryption, hashing, salting, bcrypt, and beyond. 2021. YouTube Video added by Studying With Alex. [Online]. Available at: https://youtu.be/qgpsIBLvrGY?si=ZNFix4RCMuc0_yRe  [Accessed 10 Oct. 2025].
+Secure ExpressJS Application With Helmet. 2020. YouTube Video added by Ivanov, M. [Online]. Available at: https://youtu.be/tGMPWVl_l9Y?si=pRez62xM2bFGOw-f [Accessed 10 October 2025].
+Setup HTTPS in Development With Create React App. 2020. YouTube Video added by Orlov, M. [Online]. Available at: https://youtu.be/neT7fmZ6sDE?si=fxQPYELtot-SARaP [Accessed 10 October 2025].

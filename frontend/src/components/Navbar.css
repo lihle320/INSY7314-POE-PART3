@@ -1,0 +1,43 @@
+.navbar {
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-links a {
+  margin-left: 1rem;
+  color: var(--text-light);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: #dceeff;
+}
+
+/* 🚀 NEW STYLES for the Logout Button 🚀 */
+.navbar-link-button {
+  /* Reset default button appearance */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0; 
+  
+  /* Inherit and apply link styles */
+  margin-left: 1rem; /* Matches the 'margin-left' of <a> tags */
+  color: var(--text-light); /* Matches the color of <a> tags */
+  font-weight: 500; /* Matches the font-weight of <a> tags */
+  transition: color 0.2s;
+  
+  /* Ensure text inheritance */
+  font-size: inherit;
+  font-family: inherit;
+}
+
+/* Apply the hover style to the button */
+.navbar-link-button:hover {
+  color: #dceeff; /* Matches the hover color of <a> tags */
+}
