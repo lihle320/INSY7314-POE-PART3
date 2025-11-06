@@ -1,0 +1,100 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/reference/configuration-reference
+version: 2.1
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/guides/orchestrate/jobs-steps/#jobs-overview & https://circleci.com/docs/reference/configuration-reference/#jobs
+jobs:
+  build:
+    docker:
+      - image: cimg/base:current
+    steps:
+      - checkout
+      - run:
+          name: "Install dependencies"
+          command: "echo Installing project dependencies..."
+      - run:
+          name: "Run tests"
+          command: "echo Running test suite..."
+      - run:
+          name: "Build project"
+          command: "echo Building application..."
+
+  sonarqube:
+    working_directory: ~/build
+    docker:
+      - image: sonarsource/sonar-scanner-cli:latest
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Validate SonarCloud configuration
+          command: |
+            if [ -z "$SONAR_ORG" ]; then
+              echo "ERROR: SONAR_ORG environment variable is not set"
+              exit 1
+            fi
+            if [ -z "$SONAR_PROJECT_KEY" ]; then
+              echo "ERROR: SONAR_PROJECT_KEY environment variable is not set"
+              exit 1
+            fi
+            if [ -z "$SONAR_TOKEN" ]; then
+              echo "ERROR: SONAR_TOKEN environment variable is not set"
+              exit 1
+            fi
+            echo "SonarCloud configuration validated successfully"
+      - run:
+          name: Run SonarCloud Scanner
+          command: |
+            # Determine branch name - handle both 'main' and 'master' as default branches
+            if [ "$CIRCLE_BRANCH" == "main" ] || [ "$CIRCLE_BRANCH" == "master" ]; then
+              SONAR_BRANCH="$CIRCLE_BRANCH"
+            else
+              SONAR_BRANCH="$CIRCLE_BRANCH"
+            fi
+
+            echo "Sonar branch value is: $SONAR_BRANCH"
+            echo "Sonar org value is: $SONAR_ORG"
+            echo "Sonar project key is: $SONAR_PROJECT_KEY"
+
+            # Add retry logic for the SonarCloud API
+            max_retries=3
+            retry_count=0
+           
+            while [ $retry_count -lt $max_retries ]; do
+              sonar-scanner \
+                -Dsonar.projectKey="$SONAR_PROJECT_KEY" \
+                -Dsonar.organization="$SONAR_ORG" \
+                -Dsonar.host.url="https://sonarcloud.io" \
+                -Dsonar.exclusions="**/android/**,**/ios/**" \
+                -Dsonar.login="$SONAR_TOKEN" \
+                -Dsonar.branch.name="$SONAR_BRANCH" \
+                -Dsonar.scm.provider=git \
+                -Dsonar.sourceEncoding=UTF-8
+             
+              if [ $? -eq 0 ]; then
+                echo "SonarQube analysis completed successfully"
+                break
+              else
+                retry_count=$((retry_count + 1))
+                echo "SonarQube analysis failed, retry $retry_count of $max_retries in 10 seconds..."
+                if [ $retry_count -lt $max_retries ]; then
+                  sleep 10
+                fi
+              fi
+            done
+           
+            if [ $retry_count -eq $max_retries ]; then
+              echo "SonarQube analysis failed after $max_retries attempts"
+              exit 1
+            fi
+
+# Orchestrate jobs using workflows
+# See: https://circleci.com/docs/guides/orchestrate/workflows/ & https://circleci.com/docs/reference/configuration-reference/#workflows
+workflows:
+  build-and-scan:
+    jobs:
+      - build
+      - sonarqube:
+          requires:
+            - build

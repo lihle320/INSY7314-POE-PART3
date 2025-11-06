@@ -1,0 +1,1 @@
+curl.exe -k -b ".\tests\regex-tests\cookies-item-get.txt" -i -s -S "https://localhost:5000/item?id=1%27%20OR%20%271%27%3D%271"

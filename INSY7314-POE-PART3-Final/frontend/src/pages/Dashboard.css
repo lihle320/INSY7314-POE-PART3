@@ -1,0 +1,141 @@
+.dashboard-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 2rem auto;
+}
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.summary-card.sent {
+  background: #fef2f2;
+  border-left: 4px solid #dc2626;
+}
+
+.summary-card.received {
+  background: #f0fdf4;
+  border-left: 4px solid #16a34a;
+}
+
+.summary-card.net.positive {
+  background: #f0fdf4;
+  border-left: 4px solid #16a34a;
+}
+
+.summary-card.net.negative {
+  background: #fef2f2;
+  border-left: 4px solid #dc2626;
+}
+
+.summary-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.summary-card .amount {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.sent .amount { color: #dc2626; }
+.received .amount { color: #16a34a; }
+
+.transaction-row.out {
+  background-color: #fef2f2;
+}
+
+.transaction-row.in {
+  background-color: #f0fdf4;
+}
+
+.type-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.type-badge.sent {
+  background: #fecaca;
+  color: #dc2626;
+}
+
+.type-badge.received {
+  background: #bbf7d0;
+  color: #16a34a;
+}
+
+.amount.out { color: #dc2626; font-weight: bold; }
+.amount.in { color: #16a34a; font-weight: bold; }
+
+.original-amount {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.account-number {
+  font-family: monospace;
+  color: #6b7280;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+}
+
+.dashboard-card h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+  text-align: center;
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.payment-table th, 
+.payment-table td {
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.payment-table th {
+  background: var(--primary);
+  color: var(--text-light);
+}
+
+.status.pending {
+  color: orange;
+}
+
+.status.completed {
+  color: green;
+}
+
+.status.failed {
+  color: red;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

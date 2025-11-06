@@ -1,0 +1,29 @@
+form,label,method,request,http_status,response_file
+register,username_too_short,POST,register-username_too_short-request.txt,HTTP/1.1 403 Forbidden,register-username_too_short-response.txt
+register,username_illegal_chars,POST,register-username_illegal_chars-request.txt,HTTP/1.1 403 Forbidden,register-username_illegal_chars-response.txt
+register,username_too_long,POST,register-username_too_long-request.txt,HTTP/1.1 403 Forbidden,register-username_too_long-response.txt
+register,email_invalid,POST,register-email_invalid-request.txt,HTTP/1.1 403 Forbidden,register-email_invalid-response.txt
+register,password_too_short,POST,register-password_too_short-request.txt,HTTP/1.1 403 Forbidden,register-password_too_short-response.txt
+register,bio_script_like,POST,register-bio_script_like-request.txt,HTTP/1.1 403 Forbidden,register-bio_script_like-response.txt
+register,id_sql_like_get,POST,register-id_sql_like_get-request.txt,HTTP/1.1 403 Forbidden,register-id_sql_like_get-response.txt
+login,username_too_short,POST,login-username_too_short-request.txt,HTTP/1.1 403 Forbidden,login-username_too_short-response.txt
+login,username_illegal_chars,POST,login-username_illegal_chars-request.txt,HTTP/1.1 403 Forbidden,login-username_illegal_chars-response.txt
+login,username_too_long,POST,login-username_too_long-request.txt,HTTP/1.1 403 Forbidden,login-username_too_long-response.txt
+login,email_invalid,POST,login-email_invalid-request.txt,HTTP/1.1 403 Forbidden,login-email_invalid-response.txt
+login,password_too_short,POST,login-password_too_short-request.txt,HTTP/1.1 403 Forbidden,login-password_too_short-response.txt
+login,bio_script_like,POST,login-bio_script_like-request.txt,HTTP/1.1 403 Forbidden,login-bio_script_like-response.txt
+login,id_sql_like_get,POST,login-id_sql_like_get-request.txt,HTTP/1.1 403 Forbidden,login-id_sql_like_get-response.txt
+profile,username_too_short,POST,profile-username_too_short-request.txt,HTTP/1.1 403 Forbidden,profile-username_too_short-response.txt
+profile,username_illegal_chars,POST,profile-username_illegal_chars-request.txt,HTTP/1.1 403 Forbidden,profile-username_illegal_chars-response.txt
+profile,username_too_long,POST,profile-username_too_long-request.txt,HTTP/1.1 403 Forbidden,profile-username_too_long-response.txt
+profile,email_invalid,POST,profile-email_invalid-request.txt,HTTP/1.1 403 Forbidden,profile-email_invalid-response.txt
+profile,password_too_short,POST,profile-password_too_short-request.txt,HTTP/1.1 403 Forbidden,profile-password_too_short-response.txt
+profile,bio_script_like,POST,profile-bio_script_like-request.txt,HTTP/1.1 403 Forbidden,profile-bio_script_like-response.txt
+profile,id_sql_like_get,POST,profile-id_sql_like_get-request.txt,HTTP/1.1 403 Forbidden,profile-id_sql_like_get-response.txt
+item-get,username_too_short,GET,item-get-username_too_short-request.txt,HTTP/1.1 404 Not Found,item-get-username_too_short-response.txt
+item-get,username_illegal_chars,GET,item-get-username_illegal_chars-request.txt,HTTP/1.1 404 Not Found,item-get-username_illegal_chars-response.txt
+item-get,username_too_long,GET,item-get-username_too_long-request.txt,HTTP/1.1 404 Not Found,item-get-username_too_long-response.txt
+item-get,email_invalid,GET,item-get-email_invalid-request.txt,HTTP/1.1 404 Not Found,item-get-email_invalid-response.txt
+item-get,password_too_short,GET,item-get-password_too_short-request.txt,HTTP/1.1 404 Not Found,item-get-password_too_short-response.txt
+item-get,bio_script_like,GET,item-get-bio_script_like-request.txt,HTTP/1.1 404 Not Found,item-get-bio_script_like-response.txt
+item-get,id_sql_like_get,GET,item-get-id_sql_like_get-request.txt,HTTP/1.1 404 Not Found,item-get-id_sql_like_get-response.txt

@@ -1,0 +1,27 @@
+/* index.css - global theme */
+:root {
+  --primary: #0070BA;
+  --primary-dark: #005c99;
+  --bg-light: #f4f6f8;
+  --text-dark: #333;
+  --text-light: #fff;
+  --border: #ddd;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
