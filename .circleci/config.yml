@@ -285,7 +285,7 @@ jobs:
       - run:
           name: Generate security summary report
           command: |
-            cat << EOF > security-summary.txt
+            cat > security-summary.txt << "EOF"
             === SECURITY TESTING SUMMARY ===
             Build: $CIRCLE_BUILD_NUM
             Commit: $CIRCLE_SHA1
