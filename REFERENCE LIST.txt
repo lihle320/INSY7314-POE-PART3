@@ -8,3 +8,9 @@ MERN Stack Tutorial with Deployment – Beginner's Course. 2025. YouTube Video a
 Password Storage Tier List: encryption, hashing, salting, bcrypt, and beyond. 2021. YouTube Video added by Studying With Alex. [Online]. Available at: https://youtu.be/qgpsIBLvrGY?si=ZNFix4RCMuc0_yRe  [Accessed 10 Oct. 2025].
 Secure ExpressJS Application With Helmet. 2020. YouTube Video added by Ivanov, M. [Online]. Available at: https://youtu.be/tGMPWVl_l9Y?si=pRez62xM2bFGOw-f [Accessed 10 October 2025].
 Setup HTTPS in Development With Create React App. 2020. YouTube Video added by Orlov, M. [Online]. Available at: https://youtu.be/neT7fmZ6sDE?si=fxQPYELtot-SARaP [Accessed 10 October 2025].
+
+Final Part:
+Onwuzulike, I.2020. Seeding a MongoDB Database with NodeJS and Express for the Igbo Dictionary API. [online] 
+Youtube. Available at: https://youtu.be/fBQe3ZRPVdI?si=WFIamkkHzfoY6Pie [Accessed 7 November 2025]
+procademy.2024. #122 Preventing Parameter Pollution | Authentication & Authorization | A Complete NODE JS Course.
+ [online] Youtube. Available at: https://youtu.be/ECnqctPMKys?si=rhDYyIdho-SI3C9S [Accessed 7 November 2025].
