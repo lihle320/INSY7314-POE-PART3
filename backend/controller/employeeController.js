@@ -5,18 +5,7 @@ import User from '../models/user.js';
 import History from '../models/history.js';
 import Employee from '../models/employee.js';
 
-const employeeGenerateToken = (res, userId) => {
-    const token = jwt.sign({ id: userId }, process.env.JWT_SECRET, {
-        expiresIn: '30d', 
-    });
-    
-    res.cookie('jwt_employee', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV !== 'development',
-        sameSite: 'strict',
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-    });
-};
+//logs in employees (freeCodeCamp.org ,2025)
 
 export const employeeLogin = async (req, res) => {
     const { employeeId, password } = req.body;
@@ -73,6 +62,7 @@ export const employeeLogin = async (req, res) => {
         });
     }
 };
+//updates status and transfers funds (freeCodeCamp.org ,2025)
 
 const updateStatusAndTransfer = async (paymentId, status, amountInZAR, senderId, recipientAccountNumber) => {
     const updatedPayment = await Payment.findByIdAndUpdate(
@@ -132,7 +122,7 @@ export const debugAllPayments = async (req, res) => {
             .populate('userId', 'name accountNumber email')
             .sort({ createdAt: -1 });
 
-        console.log('🔍 DEBUG - All payments in database:', allPayments.length);
+        console.log('All payments in database:', allPayments.length);
 
         const formatted = allPayments.map(p => ({
             id: p._id,
@@ -169,6 +159,7 @@ export const debugAllPayments = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+//gets transactions for employee (freeCodeCamp.org ,2025)
 
 export const getAllTransactions = async (req, res) => {
     try {
@@ -201,7 +192,7 @@ export const getAllTransactions = async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error retrieving transactions.' });
     }
 };
-
+//creates employee accounts (Onwuzulike, 2020)
 export const seedInitialEmployees = async (req, res) => {
     try {
         const dummyEmployees = [
@@ -235,7 +226,7 @@ export const seedInitialEmployees = async (req, res) => {
         }
     }
 };
-
+//gets infomation from an employee (freeCodeCamp.org ,2025)
 export const getEmployeeProfile = async (req, res) => {
     try {
         const employee = await Employee.findById(req.user._id).select('-password'); 
@@ -256,7 +247,7 @@ export const getEmployeeProfile = async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error fetching profile.' });
     }
 };
-
+//gets pending transactions for employee to approve or reject (freeCodeCamp.org ,2025)
 export const getPendingTransactions = async (req, res) => {
     try {
         const pendingPayments = await Payment.find({ status: 'pending' })
@@ -288,7 +279,7 @@ export const getPendingTransactions = async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error retrieving pending transactions.' });
     }
 };
-
+//approves transaction and transfers funds (freeCodeCamp.org ,2025)
 export const approveTransaction = async (req, res) => {
     const { id: paymentId } = req.params;
 
@@ -303,18 +294,19 @@ export const approveTransaction = async (req, res) => {
             return res.status(400).json({ message: `Transaction already processed with status: ${payment.status}.` });
         }
 
-        const message = await updateStatusAndTransfer(
-            paymentId, 
-            'completed', 
-            payment.convertedAmount, 
-            payment.userId, 
+        const resultMessage = await updateStatusAndTransfer(
+            paymentId,
+            'completed',
+            payment.convertedAmount,
+            payment.userId,
             payment.recipientAccountNumber
         );
 
         res.status(200).json({ 
             message: `Transaction ${payment.transactionId} approved successfully. Funds have been transferred.`,
             transactionId: payment.transactionId,
-            newStatus: 'completed'
+            newStatus: 'completed',
+            details: resultMessage
         });
         
     } catch (error) {
@@ -322,7 +314,7 @@ export const approveTransaction = async (req, res) => {
         res.status(500).json({ message: error.message || 'Internal Server Error during approval process.' });
     }
 };
-
+//method to reject transaction (freeCodeCamp.org ,2025)
 export const rejectTransaction = async (req, res) => {
     const { id: paymentId } = req.params;
 
