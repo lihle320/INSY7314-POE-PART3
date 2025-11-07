@@ -1,11 +1,10 @@
 import express from 'express';
 import https from 'https'; //(Orlov, 2020)
-import http from 'http'; // Add this import for HTTP redirects
+import http from 'http'; 
 import fs from 'fs';
 import helmet from 'helmet'; //(WebDevBob ,2023)
 import dotenv from 'dotenv';
-import hpp from 'hpp'; // HTTP Parameter Pollution protection
-
+import hpp from 'hpp';//(procademy,2024)  
 dotenv.config();
 import cookieParser from 'cookie-parser'; 
 import session from 'express-session';
@@ -59,7 +58,7 @@ app.use(helmet({
 
 app.use(express.json()); //(freeCodeCamp.org ,2025)
 
-//HTTP Parameter Pollution protection
+//HTTP Parameter Pollution protection (procademy,2024)
 app.use(hpp());
 
 // General rate limiting for all routes
@@ -120,7 +119,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/employees', employeeRoutes); 
 
-// Debug logging for registered routes
+// Debug logging 
 console.log('Registered user routes:');
 userRoutes.stack.forEach(layer => {
   if (layer.route) {
